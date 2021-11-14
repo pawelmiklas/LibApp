@@ -26,6 +26,9 @@ namespace LibApp.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<DateTime?>("Birthdate")
+                        .HasColumnType("datetime2");
+
                     b.Property<bool>("HasNewsletterSubscribed")
                         .HasColumnType("bit");
 
@@ -54,6 +57,11 @@ namespace LibApp.Data.Migrations
 
                     b.Property<byte>("DurationInMonths")
                         .HasColumnType("tinyint");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<short>("SignUpFee")
                         .HasColumnType("smallint");

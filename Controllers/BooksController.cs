@@ -5,11 +5,20 @@ using System.Linq;
 using System.Threading.Tasks;
 using LibApp.Models;
 using LibApp.ViewModels;
+using LibApp.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace LibApp.Controllers
 {
     public class BooksController : Controller
     {
+        private readonly ApplicationDbContext _context;
+
+        public BooksController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
         public IActionResult Random()
         {
             var firstBook = new Book()
@@ -39,7 +48,7 @@ namespace LibApp.Controllers
 
         public IActionResult Index()
         {
-            var books = GetBooks();
+            var books = _context.Books.Include(c => c.Genre).ToList();
 
             return View(books);
         }
@@ -48,15 +57,6 @@ namespace LibApp.Controllers
         public IActionResult ByReleaseDate(int year, int month)
         {
             return Content(year + "/" + month);
-        }
-
-        private IEnumerable<Book> GetBooks()
-        {
-            return new List<Book>
-            {
-                new Book { Id = 1, Name = "Hamlet"},
-                new Book { Id = 2, Name = "Ulysses"},
-            };
         }
     }
 }

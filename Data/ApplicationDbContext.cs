@@ -15,5 +15,10 @@ namespace LibApp.Data
             : base(options)
         {
         }
+
+        internal object Include(Func<object, object> p)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

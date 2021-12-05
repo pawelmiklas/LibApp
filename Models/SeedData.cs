@@ -25,6 +25,7 @@ namespace LibApp.Models
                     new MembershipType
                     {
                         Id = 1,
+                        Name = "test",
                         SignUpFee = 0,
                         DurationInMonths = 0,
                         DiscountRate = 0,
@@ -32,6 +33,7 @@ namespace LibApp.Models
                     new MembershipType
                     {
                         Id = 2,
+                        Name = "test2",
                         SignUpFee = 30,
                         DurationInMonths = 1,
                         DiscountRate = 10,
@@ -39,6 +41,7 @@ namespace LibApp.Models
                     new MembershipType
                     {
                         Id = 3,
+                        Name = "test3",
                         SignUpFee = 90,
                         DurationInMonths = 3,
                         DiscountRate = 15,
@@ -46,6 +49,7 @@ namespace LibApp.Models
                     new MembershipType
                     {
                         Id = 4,
+                        Name = "test4",
                         SignUpFee = 300,
                         DurationInMonths = 12,
                         DiscountRate = 20,

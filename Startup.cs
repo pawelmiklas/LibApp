@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using LibApp.Repositories;
 
 namespace LibApp
 {
@@ -30,6 +31,9 @@ namespace LibApp
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddScoped<IBookRepository, BookRepository>();
+
             services.AddDatabaseDeveloperPageExceptionFilter();
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
